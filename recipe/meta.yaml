@@ -17,23 +17,25 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.8
     - setuptools
   run:
-    - python >=3.6
+    - python >=3.8
     - python-gssapi
     - requests >=1.1.0
 
 test:
   requires:
     - pip
+    - pytest
   source_files:
-    - test_requests_gssapi.py
+    - tests
   commands:
     # check requirements
     - python -m pip check
+    - python -m pip show requests-gssapi
     # run tests
-    - python test_requests_gssapi.py
+    - python -m pytest -ra -v tests/
 
 about:
   home: https://github.com/pythongssapi/requests-gssapi
